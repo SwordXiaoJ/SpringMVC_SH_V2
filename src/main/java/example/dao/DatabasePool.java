@@ -25,6 +25,11 @@ public class DatabasePool {
 
 
                 hikariDataSource = new HikariDataSource(hikariConfig);
+                hikariDataSource.setMaximumPoolSize(8);
+                hikariDataSource.setConnectionTimeout(50000);
+                hikariDataSource.setValidationTimeout(2500);
+                hikariDataSource.setIdleTimeout(50000);
+                hikariDataSource.setMaxLifetime(50000);
                 return hikariDataSource;
             }
         }
